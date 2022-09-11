@@ -77,7 +77,7 @@ function affiche(indexé) {
   totalProduit();
 }
 
-//Fonction modifQuantité on modifie dynamiquement les quantités du panier
+//Fonction modifQuantité, modifie dynamiquement les quantités du panier
 function modifQuantité() {
   const cart = document.querySelectorAll(".cart__item");
    cart.forEach((cart) => {console.log("item panier en dataset: " + " " + cart.dataset.id + " " + cart.dataset.couleur + " " + cart.dataset.quantité); });
@@ -100,7 +100,7 @@ function modifQuantité() {
   });
 }
 
-//Fonction supression on supprime un article dynamiquement du panier et donc de l'affichage
+//Fonction supression, supprime un article dynamiquement du panier et de l'affichage
 function suppression() {
   const cartdelete = document.querySelectorAll(".cart__item .deleteItem");
   //pour chaque élément cartdelete
@@ -157,6 +157,7 @@ function totalProduit() {
   //pointe l'endroit d'affichage du prix total
   document.getElementById("totalPrice").textContent = totalPrix;
 }
+
 //Formulaire
 //les données du client seront stockées dans ce tableau pour la commande sur page panier
 if (page.match("cart")) {
@@ -182,9 +183,9 @@ if (page.match("cart")) {
 }
 
 //regex 
-//début regex qui valide les caratères a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ aussi les espaces blancs et tiret \s- comprit entre 1 et 31 caratères (nombre de caractère maximum sur carte identité) {1,31} et on termine la regex $/i en indiquant que les éléments selectionnés ne sont pas sensible à la casse
+//début regex qui valide les caratères a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ aussi les espaces blancs et tiret \s- comprit entre 1 et 31 caratères {1,31}, termine la regex $/i en indiquant que les éléments selectionnés ne sont pas sensible à la casse
 let regexLettre = /^[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ\s-]{1,31}$/i;
-//début regex qui valide les caratères chiffre lettre et caratères spéciaux a-z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ aussi les espaces blancs et tiret \s- comprit entre 1 et 60 caratères (nombre de caractère maximum sur carte identité) {1,60} et on termine la regex $/i en indiquant que les éléments selectionnés ne sont pas sensible à la casse
+//début regex qui valide les caratères chiffre lettre et caratères spéciaux a-z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ aussi les espaces blancs et tiret \s- comprit entre 1 et 60 caratères {1,60},termine la regex $/i en indiquant que les éléments selectionnés ne sont pas sensible à la casse
 let regexChiffreLettre = /^[a-z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ\s-]{1,60}$/i;
 let regValideEmail = /^[a-z0-9æœ.!#$%&’*+/=?^_`{|}~"(),:;<>@[\]-]{1,60}$/i;
 let regMatchEmail = /^[a-zA-Z0-9æœ.!#$%&’*+/=?^_`{|}~"(),:;<>@[\]-]+@([\w-]+\.)+[\w-]{2,4}$/i;
@@ -367,7 +368,7 @@ if (page.match("cart")) {
 }
 
 //fonction récupérations des id puis mis dans un tableau
-//définition du panier quine comportera que les id des produits choisi du local storage
+//définition du panier qui ne comportera que les id des produits choisi du local storage
 let panierId = [];
 function tableauId() {
 //appel des ressources
