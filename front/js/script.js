@@ -1,5 +1,3 @@
-//Pour node server :cd OneDrive\Documents\Projet 5\back
-
 //Recuperation de l'api
 fetch("http://localhost:3000/api/products")
     .then((res) => res.json())
