@@ -80,7 +80,6 @@ function affiche(indexé) {
 //Fonction modifQuantité, modifie dynamiquement les quantités du panier
 function modifQuantité() {
   const cart = document.querySelectorAll(".cart__item");
-   cart.forEach((cart) => {console.log("item panier en dataset: " + " " + cart.dataset.id + " " + cart.dataset.couleur + " " + cart.dataset.quantité); });
   cart.forEach((cart) => {
     cart.addEventListener("change", (eq) => {
       let panier = JSON.parse(localStorage.getItem("panierStocké"));
@@ -89,7 +88,7 @@ function modifQuantité() {
         if (
           article._id === cart.dataset.id &&
           cart.dataset.couleur === article.couleur
-        ) {
+        ) { 
           article.quantité = eq.target.value;
           localStorage.panierStocké = JSON.stringify(panier);
           //met à jour le dataset quantité
@@ -371,16 +370,17 @@ if (page.match("cart")) {
 //définition du panier qui ne comportera que les id des produits choisi du local storage
 let panierId = [];
 function tableauId() {
-//appel des ressources
+// appel des ressources
 let panier = JSON.parse(localStorage.getItem("panierStocké"));
-//récupération des id produit dans panierId
-if (panier && panier.length > 0) {
+// récupération des id produit dans panierId
+if (panier && panier.length > 0 ||
+    panier && panier.length < 100 ) {
   for (let indice of panier) {
     panierId.push(indice._id);
   }
 } else {
-  console.log("le panier est vide");
-  document.querySelector("#order").setAttribute("value", "Panier vide!");
+  console.log("La quantité maximal d'une commande et de 100 articles.");
+  alert("La quantité maximal d'une commande et de 100 articles.");
 }
 }
 
@@ -426,6 +426,4 @@ function envoiPaquet() {
       .catch(function (err) {
         console.log(err);
         alert("erreur");
-      });
-  }
-};
+})}};
