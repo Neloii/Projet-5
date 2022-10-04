@@ -65,7 +65,7 @@ function affiche(indexé) {
       <div class="cart__item__content__settings">
         <div class="cart__item__content__settings__quantity">
           <p>Qté : </p>
-          <input type="number" class="itemQuantity" name="itemQuantity" min="1" max="100" value="${choix.quantité}">
+          <input type="number" class="itemQuantity" name="itemQuantity" min="1" max="100" value="${choix.quantité}" onkeydown="return false">
         </div>
         <div class="cart__item__content__settings__delete">
           <p class="deleteItem" data-id="${choix._id}" data-couleur="${choix.couleur}">Supprimer</p>
@@ -373,8 +373,7 @@ function tableauId() {
 // appel des ressources
 let panier = JSON.parse(localStorage.getItem("panierStocké"));
 // récupération des id produit dans panierId
-if (panier && panier.length > 0 ||
-    panier && panier.length < 100 ) {
+if (panier.length >0 && panier.length<=100) {
   for (let indice of panier) {
     panierId.push(indice._id);
   }
